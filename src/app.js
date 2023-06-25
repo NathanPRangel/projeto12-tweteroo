@@ -29,13 +29,13 @@ app.post("/tweets", (req, res) => {
     const user = req.headers.username
 
     if (!user || !tweet) {
-        return res.status(400).send("Todos os campos são obrigatórios!")
+        return res.status(200).send("Todos os campos são obrigatórios!")
     }
 
     const userExist = userData.find(data => data.username === user)
 
     if (!userExist) {
-        return res.status(200).send("UNAUTHORIZED")
+        return res.status(201).send("UNAUTHORIZED")
     }
 
     userTweets.unshift({ tweet, user })
