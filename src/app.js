@@ -35,7 +35,7 @@ app.post("/tweets", (req, res) => {
     const userExist = userData.find(data => data.username === user)
 
     if (!userExist) {
-        return res.status(200).send("UNAUTHORIZED")
+        return res.status(401).send("UNAUTHORIZED")
     }
 
     userTweets.unshift({ tweet, user })
