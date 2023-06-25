@@ -14,7 +14,7 @@ app.post("/sign-up", (req, res) => {
     const body = req.body
 
     if (!body.username || !body.avatar) {
-        return res.status(200).send("Todos os campos são obrigatórios!")
+        return res.status(400).send("Todos os campos são obrigatórios!")
     }
 
     userData.push(body)
@@ -29,7 +29,7 @@ app.post("/tweets", (req, res) => {
     const user = req.headers.username
 
     if (!user || !tweet) {
-        return res.status(201).send("Todos os campos são obrigatórios!")
+        return res.status(400).send("Todos os campos são obrigatórios!")
     }
 
     const userExist = userData.find(data => data.username === user)
